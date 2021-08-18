@@ -11,7 +11,7 @@
   },
   "scripts": {
     "init": "prisma db push && prisma db seed --preview-feature",
-    "dev": "ts-node ./script.ts"
+    "dev": "ts-node ./sandbox.ts"
   },
   "dependencies": {
     "@prisma/client": "2.29.1"
