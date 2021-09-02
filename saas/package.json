@@ -5,7 +5,7 @@
     "@types/faker": "5.5.8",
     "@types/node": "16.7.1",
     "faker": "5.5.3",
-    "prisma": "2.29.1",
+    "prisma": "2.30.3",
     "ts-node": "10.2.1",
     "typescript": "4.3.5"
   },
@@ -14,7 +14,7 @@
     "dev": "ts-node ./sandbox.ts"
   },
   "dependencies": {
-    "@prisma/client": "2.29.1"
+    "@prisma/client": "2.30.3"
   },
   "engines": {
     "node": ">=12.2.0"
