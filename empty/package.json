@@ -2,10 +2,10 @@
   "name": "empty",
   "license": "UNLICENSED",
   "devDependencies": {
-    "prisma": "2.29.1"
+    "prisma": "2.30.3"
   },
   "dependencies": {
-    "@prisma/client": "2.29.1"
+    "@prisma/client": "2.30.3"
   },
   "engines": {
     "node": ">=10.0.0"
