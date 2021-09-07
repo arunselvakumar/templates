@@ -2,7 +2,7 @@
   "name": "empty",
   "license": "UNLICENSED",
   "devDependencies": {
-    "prisma": "2.30.3"
+    "prisma": "3.0.1"
   },
   "dependencies": {
     "@prisma/client": "2.30.3"
