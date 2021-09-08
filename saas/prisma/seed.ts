@@ -23,7 +23,6 @@ const data = Array.from({ length: NUMBER_OF_USERS }).map(() => ({
 export async function seed() {
   const prisma = new PrismaClient()
 
-  let error
   try {
     for (let entry of data) {
       await prisma.user.create({

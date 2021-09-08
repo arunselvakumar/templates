@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+
 import * as faker from 'faker'
 
 const NUMBER_OF_USERS = 10
@@ -32,7 +33,7 @@ const rooms = Array.from({
   })),
 }))
 
-const data = Array.from({ length: NUMBER_OF_USERS }).map(() => ({
+const users = Array.from({ length: NUMBER_OF_USERS }).map(() => ({
   email: faker.internet.email(),
   name: faker.name.firstName(),
   reviews: Array.from({
@@ -85,31 +86,30 @@ export async function seed() {
   const prisma = new PrismaClient()
 
   try {
-    rooms.forEach(
-      async (room) =>
-        await prisma.room.create({
-          data: {
-            id: room.id,
-            address: room.address,
-            price: room.price,
-            summary: room.summary,
-            media: {
-              create: room.media,
-            },
+    for (let room of rooms) {
+      await prisma.room.create({
+        data: {
+          id: room.id,
+          address: room.address,
+          price: room.price,
+          summary: room.summary,
+          media: {
+            create: room.media,
           },
-        }),
-    )
+        },
+      })
+    }
 
-    for (let entry of data) {
+    for (let user of users) {
       await prisma.user.create({
         data: {
-          email: entry.email,
-          name: entry.name,
+          email: user.email,
+          name: user.name,
           reservations: {
-            create: entry.reservations,
+            create: user.reservations,
           },
           reviews: {
-            create: entry.reviews,
+            create: user.reviews,
           },
         },
       })
