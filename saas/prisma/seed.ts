@@ -1,6 +1,8 @@
 import { PrismaClient } from '@prisma/client'
 import * as faker from 'faker'
 
+const prisma = new PrismaClient()
+
 const NUMBER_OF_USERS = 4
 const NUMBER_OF_INVITES = 4
 
@@ -20,33 +22,31 @@ const data = Array.from({ length: NUMBER_OF_USERS }).map(() => ({
   })),
 }))
 
-export async function seed() {
-  const prisma = new PrismaClient()
-
-  let error
-  try {
-    for (let entry of data) {
-      await prisma.user.create({
-        data: {
-          name: entry.name,
-          email: entry.email,
-          account: {
-            create: {
-              stripeCustomerId: entry.account.stripeCustomerId,
-              stripeSubscriptionId: entry.account.stripeSubscriptionId,
-              isActive: true,
-              invites: {
-                create: entry.invites,
-              },
+async function main() {
+  for (let entry of data) {
+    await prisma.user.create({
+      data: {
+        name: entry.name,
+        email: entry.email,
+        account: {
+          create: {
+            stripeCustomerId: entry.account.stripeCustomerId,
+            stripeSubscriptionId: entry.account.stripeSubscriptionId,
+            isActive: true,
+            invites: {
+              create: entry.invites,
             },
           },
         },
-      })
-    }
-  } catch (e) {
-    await prisma.$disconnect()
-    throw e
-  } finally {
-    await prisma.$disconnect()
+      },
+    })
   }
 }
+
+main()
+  .catch((e) => {
+    console.error(e)
+  })
+  .finally(async () => {
+    await prisma.$disconnect()
+  })
