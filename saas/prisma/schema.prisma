@@ -30,7 +30,6 @@ model Account {
   stripeSubscriptionId String
   referrer             String?
   isActive             Boolean
-
 }
 
 model Invite {
