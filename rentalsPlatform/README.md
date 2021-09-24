@@ -15,4 +15,4 @@ Once you clone your repo, you'll want to set up this repo for local development.
    - [Read more about the Prisma Schema](https://www.prisma.io/docs/concepts/components/prisma-schema)
    - [Read more about database seeding](https://www.prisma.io/docs/guides/database/seed-database)
 
-To learn more about Prisma, we recommend reading through our [Getting Started guide](https://www.prisma.io/docs/getting-started
+To learn more about Prisma, we recommend reading through our [Getting Started guide](https://www.prisma.io/docs/getting-started)

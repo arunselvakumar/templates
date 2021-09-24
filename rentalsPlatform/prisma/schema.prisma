@@ -51,7 +51,6 @@ model Room {
   hasWIFI            Boolean       @default(true)
   price              Int
   media              Media[]
-
 }
 
 model Review {
