@@ -1,12 +1,18 @@
 {
   "name": "rentals-platform",
   "license": "UNLICENSED",
+  "engines": {
+    "node": ">=12.2.0"
+  },
+  "dependencies": {
+    "@prisma/client": "3.1.1"
+  },
   "devDependencies": {
     "@types/faker": "5.5.8",
     "@types/node": "16.9.6",
     "@vercel/node": "1.12.1",
     "faker": "5.5.3",
-    "prisma": "3.0.1",
+    "prisma": "3.1.1",
     "ts-node": "10.2.1",
     "typescript": "4.4.3"
   },
@@ -16,11 +22,5 @@
   "scripts": {
     "init": "prisma db push && prisma db seed",
     "dev": "ts-node ./sandbox.ts"
-  },
-  "dependencies": {
-    "@prisma/client": "3.0.1"
-  },
-  "engines": {
-    "node": ">=12.2.0"
   }
 }

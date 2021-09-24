@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client'
-
 import * as faker from 'faker'
+
+const prisma = new PrismaClient()
 
 const NUMBER_OF_USERS = 10
 const NUMBER_OF_ROOMS = 20
@@ -33,7 +34,7 @@ const rooms = Array.from({
   })),
 }))
 
-const users = Array.from({ length: NUMBER_OF_USERS }).map(() => ({
+const data = Array.from({ length: NUMBER_OF_USERS }).map(() => ({
   email: faker.internet.email(),
   name: faker.name.firstName(),
   reviews: Array.from({
@@ -82,11 +83,10 @@ const users = Array.from({ length: NUMBER_OF_USERS }).map(() => ({
   }),
 }))
 
-export async function seed() {
-  const prisma = new PrismaClient()
+async function main() {
 
-  try {
-    for (let room of rooms) {
+  rooms.forEach(
+    async (room) =>
       await prisma.room.create({
         data: {
           id: room.id,
@@ -97,27 +97,30 @@ export async function seed() {
             create: room.media,
           },
         },
-      })
-    }
+      }),
+  )
 
-    for (let user of users) {
-      await prisma.user.create({
-        data: {
-          email: user.email,
-          name: user.name,
-          reservations: {
-            create: user.reservations,
-          },
-          reviews: {
-            create: user.reviews,
-          },
+  for (let entry of data) {
+    await prisma.user.create({
+      data: {
+        email: entry.email,
+        name: entry.name,
+        reservations: {
+          create: entry.reservations,
         },
-      })
-    }
-  } catch (e) {
-    await prisma.$disconnect()
-    throw e
-  } finally {
-    await prisma.$disconnect()
+        reviews: {
+          create: entry.reviews,
+        },
+      },
+    })
   }
+
 }
+
+main()
+  .catch((e) => {
+    console.error(e)
+  })
+  .finally(async () => {
+    await prisma.$disconnect()
+  })
