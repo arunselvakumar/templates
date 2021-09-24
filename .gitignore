@@ -6,9 +6,7 @@ dist/
 .DS_Store
 .idea
 tmp-resolvers
-package-lock.json
 flow-typed
-yarn.lock
 javascript/**/migrations/
 typescript/**/migrations/
 misc/**/migrations/
@@ -22,4 +20,5 @@ dev.db
 
 # We do not want to clone a lockfile to the user's repo
 yarn.lock
+package-lock.json
 .github/templates
