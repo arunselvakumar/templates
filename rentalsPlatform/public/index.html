@@ -171,88 +171,148 @@
           endpoints: [
             {
               method: 'GET',
-              url: '/api/user',
+              url: '/api/users',
               description: 'Get all users',
             },
             {
               method: 'GET',
-              url: '/api/user?id=:id',
+              url: '/api/users?id=:id',
               description: 'Get a single user',
             },
             {
               method: 'POST',
-              url: '/api/userd',
+              url: '/api/usersd',
               description: 'Create a single user',
             },
             {
               method: 'PUT',
-              url: '/api/user?id=:id',
+              url: '/api/users?id=:id',
               description: 'Update a single user',
             },
             {
               method: 'DELETE',
-              url: '/api/user?id=:id',
+              url: '/api/users?id=:id',
               description: 'Delete a single user',
             },
           ],
         },
         {
-          model: 'Account',
+          model: 'Reservation',
           endpoints: [
             {
               method: 'GET',
-              url: '/api/account',
-              description: 'Get all accounts',
+              url: '/api/reservation',
+              description: 'Get all reservation',
             },
             {
               method: 'GET',
-              url: '/api/account?id=:id',
+              url: '/api/reservation?id=:id',
               description: 'Get a single account',
             },
             {
               method: 'POST',
-              url: '/api/accountd',
+              url: '/api/reservationd',
               description: 'Create a single account',
             },
             {
               method: 'PUT',
-              url: '/api/account?id=:id',
+              url: '/api/reservation?id=:id',
               description: 'Update a single account',
             },
             {
               method: 'DELETE',
-              url: '/api/account?id=:id',
+              url: '/api/reservation?id=:id',
               description: 'Delete a single account',
             },
           ],
         },
         {
-          model: 'Invite',
+          model: 'Room',
           endpoints: [
             {
               method: 'GET',
-              url: '/api/invite',
-              description: 'Get all invites',
+              url: '/api/room',
+              description: 'Get all rooms',
             },
             {
               method: 'GET',
-              url: '/api/invite?id=:id',
-              description: 'Get a single invite',
+              url: '/api/room?id=:id',
+              description: 'Get a single room',
             },
             {
               method: 'POST',
-              url: '/api/invited',
-              description: 'Create a single invite',
+              url: '/api/room',
+              description: 'Create a single room',
             },
             {
               method: 'PUT',
-              url: '/api/invite?id=:id',
-              description: 'Update a single invite',
+              url: '/api/room?id=:id',
+              description: 'Update a single room',
             },
             {
               method: 'DELETE',
-              url: '/api/invite?id=:id',
-              description: 'Delete a single invite',
+              url: '/api/room?id=:id',
+              description: 'Delete a single room',
+            },
+          ],
+        },
+        {
+          model: 'Review',
+          endpoints: [
+            {
+              method: 'GET',
+              url: '/api/review',
+              description: 'Get all reviews',
+            },
+            {
+              method: 'GET',
+              url: '/api/review?id=:id',
+              description: 'Get a single review',
+            },
+            {
+              method: 'POST',
+              url: '/api/review',
+              description: 'Create a single review',
+            },
+            {
+              method: 'PUT',
+              url: '/api/review?id=:id',
+              description: 'Update a single review',
+            },
+            {
+              method: 'DELETE',
+              url: '/api/review?id=:id',
+              description: 'Delete a single review',
+            },
+          ],
+        },
+        {
+          model: 'Media',
+          endpoints: [
+            {
+              method: 'GET',
+              url: '/api/media',
+              description: 'Get all media',
+            },
+            {
+              method: 'GET',
+              url: '/api/media?id=:id',
+              description: 'Get a single media',
+            },
+            {
+              method: 'POST',
+              url: '/api/media',
+              description: 'Create a single media',
+            },
+            {
+              method: 'PUT',
+              url: '/api/media?id=:id',
+              description: 'Update a single media',
+            },
+            {
+              method: 'DELETE',
+              url: '/api/media?id=:id',
+              description: 'Delete a single media',
             },
           ],
         },

@@ -4,6 +4,7 @@
   "devDependencies": {
     "@types/faker": "5.5.8",
     "@types/node": "16.9.6",
+    "@vercel/node": "1.12.1",
     "faker": "5.5.3",
     "prisma": "3.0.1",
     "ts-node": "10.2.1",
