@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client'
-import * as faker from 'faker'
+import faker from 'faker'
 
 const prisma = new PrismaClient()
 
@@ -89,10 +89,7 @@ async function main() {
         // each playlist will have a random list of songs
         songs: {
           connect: songs
-            .slice(
-              0,
-              faker.datatype.number({ min: 1, max: songs.length - 1 }),
-            )
+            .slice(0, faker.datatype.number({ min: 1, max: songs.length - 1 }))
             .map(({ id }) => ({ id })),
         },
       },

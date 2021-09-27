@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client'
-import * as faker from 'faker'
+import faker from 'faker'
 
 const prisma = new PrismaClient()
 
@@ -84,7 +84,6 @@ const data = Array.from({ length: NUMBER_OF_USERS }).map(() => ({
 }))
 
 async function main() {
-
   rooms.forEach(
     async (room) =>
       await prisma.room.create({
@@ -114,7 +113,6 @@ async function main() {
       },
     })
   }
-
 }
 
 main()
