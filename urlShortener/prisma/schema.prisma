@@ -1,13 +1,13 @@
 // Schema for a simple URL shortener
 // This schema tracks short links by associating them to a user
 
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-}
-
-generator client {
-  provider = "prisma-client-js"
 }
 
 model Link {
@@ -16,8 +16,8 @@ model Link {
   updatedAt DateTime @updatedAt
   url       String
   shortUrl  String
-  User      User?    @relation(fields: [userId], references: [id])
   userId    String?
+  User      User?    @relation(fields: [userId], references: [id])
 }
 
 model User {

@@ -1,13 +1,13 @@
 // Schema for a fictional hotel
 // This hotel tracks rooms, user reservations & reviews
 
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-}
-
-generator client {
-  provider = "prisma-client-js"
 }
 
 model User {
@@ -25,20 +25,19 @@ model Reservation {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   userId    String?
-  user      User?    @relation(fields: [userId], references: [id])
   startDate DateTime
   endDate   DateTime
   price     Int
   total     Int
-  room      Room?    @relation(fields: [roomId], references: [id])
   roomId    String?
+  room      Room?    @relation(fields: [roomId], references: [id])
+  user      User?    @relation(fields: [userId], references: [id])
 }
 
 model Room {
   id                 String        @id @default(uuid())
   createdAt          DateTime      @default(now())
   updatedAt          DateTime      @updatedAt
-  reservations       Reservation[]
   totalOccupancy     Int           @default(5)
   totalBedrooms      Int           @default(5)
   totalBathrooms     Int           @default(5)
@@ -51,6 +50,7 @@ model Room {
   hasWIFI            Boolean       @default(true)
   price              Int
   media              Media[]
+  reservations       Reservation[]
 }
 
 model Review {
@@ -59,15 +59,15 @@ model Review {
   updatedAt DateTime @updatedAt
   rating    Int
   comment   String
-  user      User     @relation(fields: [userId], references: [id])
   userId    String
+  user      User     @relation(fields: [userId], references: [id])
 }
 
 model Media {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  room      Room?    @relation(fields: [roomId], references: [id])
   roomId    String?
   fileName  String
+  room      Room?    @relation(fields: [roomId], references: [id])
 }
