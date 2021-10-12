@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useState } from 'react'
 import styles from '../styles/Home.module.css'
+import Image from 'next/image'
 
 async function fetchApi(endpoint: string) {
   const response = await fetch(`/api/${endpoint}`)
@@ -74,10 +75,22 @@ const Home: NextPage = () => {
       </main>
 
       <footer className={styles.footer}>
-        Powered by{' '}
-        <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+        Powered by
+        <img
+          src="/vercel.svg"
+          alt="Vercel Logo"
+          className={styles.logo}
+          width={71}
+          height={16}
+        />
         &
-        <img src="/prisma.svg" alt="Prisma Logo" className={styles.logo} />
+        <Image
+          src="/prisma.svg"
+          alt="Prisma Logo"
+          className={styles.logo}
+          width={32}
+          height={16}
+        />
       </footer>
     </div>
   )

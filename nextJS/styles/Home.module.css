@@ -92,7 +92,6 @@
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-
 .apiButton {
   margin: 0.5rem;
   flex-basis: 45%;
@@ -112,11 +111,12 @@
 }
 
 .apiButton:hover {
-  background-color: #0071f2;  
+  background-color: #0071f2;
 }
 
 .logo {
   height: 1em;
+  margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
 
@@ -171,7 +171,7 @@
 }
 
 .hidden {
-  display: none
+  display: none;
 }
 
 .code {
