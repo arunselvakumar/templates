@@ -1,5 +1,6 @@
 {
-  "name": "empty",
+  "name": "saas",
+  "description": "Schema for an identity service for a SaaS with a REST API",
   "license": "UNLICENSED",
   "engines": {
     "node": ">=12.2.0"
@@ -8,12 +9,19 @@
     "@prisma/client": "3.2.1"
   },
   "devDependencies": {
+    "@types/faker": "5.5.8",
     "@types/node": "16.10.4",
+    "@vercel/node": "1.12.1",
+    "faker": "5.5.3",
     "prisma": "3.2.1",
     "ts-node": "10.3.0",
     "typescript": "4.4.3"
   },
+  "prisma": {
+    "seed": "ts-node ./prisma/seed.ts"
+  },
   "scripts": {
+    "init": "prisma db push && prisma db seed",
     "dev": "ts-node ./sandbox.ts"
   }
 }

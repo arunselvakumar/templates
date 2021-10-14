@@ -10,37 +10,46 @@ import execa from 'execa'
  */
 const projects = [
   {
-    templateName: 'musicStreamingService',
+    templateName: 'Music Streaming Service',
   },
   {
-    templateName: 'rentalsPlatform',
+    templateName: 'Rentals Platform',
   },
   {
-    templateName: 'saas',
+    templateName: 'SaaS',
   },
   {
-    templateName: 'urlShortener',
+    templateName: 'URL Shortener',
   },
 ]
 
 describe('Seed and run script', () => {
-  test.concurrent.each(projects)('$templateName against Postgres', async ({ templateName }) => {
-    const execaConfig: execa.SyncOptions = {
-      cwd: `../../${templateName}`,
-      env: {
-        DATABASE_URL: `${process.env.DATABASE_SERVER_URL}/${templateName}`
+  test.concurrent.each(projects)(
+    '$templateName against Postgres',
+    async ({ templateName }) => {
+      const execaConfig: execa.SyncOptions = {
+        cwd: `../../${templateName}`,
+        env: {
+          DATABASE_URL: `${process.env.DATABASE_SERVER_URL}/${templateName
+            .toLowerCase()
+            .replace(' ', '')}`,
+        },
       }
-    }
 
-    execa.commandSync(`npm install`, execaConfig)
+      execa.commandSync(`npm install`, execaConfig)
 
-    // Reset database in development
-    if (!process.env.CI) execa.commandSync(`yarn prisma migrate reset --force --skip-seed`, execaConfig)
+      // Reset database in development
+      if (!process.env.CI)
+        execa.commandSync(
+          `yarn prisma migrate reset --force --skip-seed`,
+          execaConfig,
+        )
 
-    const init = execa.commandSync(`npm run init`, execaConfig)
-    expect(init.exitCode).toBe(0)
+      const init = execa.commandSync(`npm run init`, execaConfig)
+      expect(init.exitCode).toBe(0)
 
-    const script = execa.commandSync(`npm run dev`, execaConfig)
-    expect(script.exitCode).toBe(0)
-  })
+      const script = execa.commandSync(`npm run dev`, execaConfig)
+      expect(script.exitCode).toBe(0)
+    },
+  )
 })

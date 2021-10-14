@@ -1,7 +1,7 @@
 name: Test Prisma Schema Templates
 on:
   pull_request:
-    branches: [ main, cloud ]
+    branches: main
 
 jobs:
   test:
@@ -29,4 +29,3 @@ jobs:
           node-version: 14.x
       - run: yarn --cwd=.github/scripts install
       - run: yarn --cwd=.github/scripts run test
-

@@ -1,5 +1,6 @@
 {
   "name": "nextjs",
+  "description": "Schema for a blog built with Next.js",
   "license": "UNLICENSED",
   "engines": {
     "node": ">=12.2.0"
