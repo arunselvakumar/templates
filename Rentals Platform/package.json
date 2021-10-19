@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@types/faker": "5.5.9",
-    "@types/node": "16.11.0",
+    "@types/node": "16.11.1",
     "@vercel/node": "1.12.1",
     "faker": "5.5.3",
     "prisma": "3.2.1",
