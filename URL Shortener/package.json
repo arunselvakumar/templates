@@ -3,7 +3,7 @@
   "description": "Schema for a URL shortener with a REST API",
   "license": "UNLICENSED",
   "engines": {
-    "node": ">=12.2.0"
+    "node": ">=14.0.0"
   },
   "dependencies": {
     "@prisma/client": "3.3.0"
