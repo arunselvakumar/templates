@@ -2,9 +2,6 @@
   "name": "nextjs",
   "description": "Schema for a blog built with Next.js",
   "license": "UNLICENSED",
-  "engines": {
-    "node": ">=14.0.0"
-  },
   "dependencies": {
     "@prisma/client": "3.3.0",
     "next": "11.1.2",

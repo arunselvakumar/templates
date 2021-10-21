@@ -2,9 +2,6 @@
   "name": "empty",
   "description": "An empty schema with no models, to build your own your own schema",
   "license": "UNLICENSED",
-  "engines": {
-    "node": ">=14.0.0"
-  },
   "dependencies": {
     "@prisma/client": "3.3.0"
   },
