@@ -7,11 +7,11 @@
   },
   "devDependencies": {
     "@types/faker": "5.5.9",
-    "@types/node": "16.11.1",
+    "@types/node": "16.11.4",
     "@vercel/node": "1.12.1",
     "faker": "5.5.3",
     "prisma": "3.3.0",
-    "ts-node": "10.3.0",
+    "ts-node": "10.4.0",
     "typescript": "4.4.4"
   },
   "prisma": {
